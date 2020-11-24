@@ -62,10 +62,10 @@ soupsieve==2.0.1
 statsmodels==0.12.1
 terminado==0.9.1
 testpath==0.4.4
-tornado==6.1
+
 traitlets==5.0.5
 urllib3==1.25.11
 wcwidth==0.2.5
 webencodings==0.5.1
-Werkzeug==1.0.1
+
 psycopg2==2.6.2

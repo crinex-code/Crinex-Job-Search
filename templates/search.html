@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>{{term}} | Search</title>
+    <link href="https://andybrewer.github.io/mvp/mvp.css" rel="stylesheet"></link>
+    <style>
+      *:focus {
+        outline: none;
+        text-decoration: none;
+      }
+      header, main {
+        padding: 2rem 6rem;
+      }
+
+      header {
+        padding-bottom: 3rem;
+      }
+      body {
+        background-color: #fef4e8;
+      }
+      .button {
+        color: white;
+        background-color: #920de9;
+        width: auto;
+        padding: 10px 20px;
+        border-radius: 5px;
+      }
+      a:hover {
+        text-decoration: none;
+      }
+      .job-container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 20px;
+      }
+      .job-wrapper {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-column-gap: 20px;
+      }
+
+      .job-info > h3 {
+        margin-top: 0;
+      }
+
+      .job-container:nth-child(2n) {
+        border-left: 1px solid #d9d9d9;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>😎 DON'T WORRY WE GOT YOUR BACK.</h1>
+      <h3>✅ {{total}} {{term|capitalize}} jobs are waiting for you</h3>
+      <p>
+        <a class="button" href="/export?term={{term}}">EXPORT TO CSV</a>
+      </p>
+      <br>
+      <p>
+        <a href="/">🔙 Go Back To Search</a>
+      </p>
+    </header>
+    <main>
+      <br>
+      <div class="job-wrapper">
+      {% for job in jobs %}
+        <div class="job-container">
+          <!-- <div class="job-logo-container">
+            {% if job.get('logo') == "None"%}
+              <div class="job-logo text-logo">{{job.get('company')[0]}}</div>
+            {% else %}
+              <img class="job-logo" src="{{job.get('logo')}}"></img>
+            {% endif %}
+          </div> -->
+          <div class="job-info">
+            <small>{{job.get('company')}} | {{job.get('location')}}</small>
+            <h3>{{job.get('title')}}</h3>
+          </div>
+          <div class="job-apply">
+            <p>
+              <a class="button" href="{{job.get('link')}}" target="_blank"> APPLY </a>
+            </p>
+          </div>
+        </div>
+      {% endfor %}
+      </div>
+    </main>
+  </body>
+</html>

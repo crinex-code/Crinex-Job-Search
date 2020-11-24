@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>구직을 해봅시다..</title>
+    <link href="https://andybrewer.github.io/mvp/mvp.css" rel="stylesheet"></link>
+    <style>
+      *:focus {
+        outline: none;
+      }
+      body {
+        background-color: #fef4e8;
+      }
+      form {
+        border: none;
+        box-shadow: none;
+        /* display: flex;
+        justify-content: center */
+      }
+      input {
+        width: 100%;
+        border: 1px solid black;
+      }
+      main {
+        padding-top: 0;
+      }
+      .modal {
+        display: none;
+        position: fixed;
+        z-index: 1000;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 100%;
+        background: rgba( 255, 255, 255, .8 )
+          url('https://i.gifer.com/6oa.gif')
+          50% 50%
+          no-repeat;
+      }
+      body.loading .modal {
+        overflow: hidden;
+        display: block;
+      }
+
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>👏🏻 WASH.</h1>
+      <h1>😷 COVER.</h1>
+      <h1>🧼 CLEAN.</h1>
+      <h1>🏠 STAY IN.</h1>
+      <h1>💻 WORK REMOTE.</h1>
+      <h3>#StayHome  #SaveLives  #CovidSucks #박준영</h3>
+    </header>
+    <main>
+      <section id="search">
+        <form id="myForm" action="/search">
+          <label for="term-input">FIND YOUR REMOTE JOB HERE👇🏻</label>
+          <input id="term-input" type="text" name="term" placeholder="i.e python">
+        </form>
+      </section>
+    </main>
+    <div class="modal"></div>
+    <script>
+      document.querySelector("#myForm").addEventListener("submit", function() {
+        document.body.className = 'loading'
+      })
+    </script>
+  </body>
+</html>
